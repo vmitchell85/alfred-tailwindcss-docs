@@ -1,7 +1,7 @@
 {
     "name": "vmitchell85/alfred-tailwindcss-docs",
     "description": "An ultra-fast TailwindCSS docs search workflow for Alfred 3",
-    "version": "0.2.1",
+    "version": "0.1.1",
     "keywords": ["alfred", "alfred-workflow", "tailwindcss", "algolia"],
     "homepage": "http://vincemitchell.me",
     "support": {
