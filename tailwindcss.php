@@ -7,6 +7,7 @@ use AlgoliaSearch\Version as AlgoliaUserAgent;
 require __DIR__ . '/vendor/autoload.php';
 
 $query = $argv[1];
+$version = $_ENV['version'] ?? 'v1';
 
 $workflow = new Workflow;
 $algolia = new Algolia('BH4D9OD16A', '3df93446658cd9c4e314d4c02a052188');
@@ -14,7 +15,9 @@ $algolia = new Algolia('BH4D9OD16A', '3df93446658cd9c4e314d4c02a052188');
 AlgoliaUserAgent::addSuffixUserAgentSegment('TailwindCSS Docs Alfred Workflow', '0.1.1');
 
 $index = $algolia->initIndex('tailwindcss');
-$search = $index->search($query, []);
+$search = $index->search($query, [
+    'facetFilters' => ["version:$version"]
+]);
 $results = $search['hits'];
 
 if (empty($results)) {
